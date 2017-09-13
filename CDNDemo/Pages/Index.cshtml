@@ -1,0 +1,280 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="row">
+            <br />
+            <div class="col-md-12">
+                <button onclick="loadImagesFromWebServer()">Load from Web Server</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <p id="startTime"></p>
+            </div>
+            <div class="col-md-4">
+                <p id="endTime"></p>
+            </div>
+            <div class="col-md-4">
+                <p id="elapsedTime"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img onload="recordFinishTime()" id="img1" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTime()" id="img2" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTime()" id="img3" src='' height="150" width="150" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img onload="recordFinishTime()" id="img4" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTime()" id="img5" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTime()" id="img6" src='' height="150" width="150" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img onload="recordFinishTime()" id="img7" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTime()" id="img8" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTime()" id="img9" src='' height="150" width="150" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            <br />
+            <div class="col-md-12">
+                <button onclick="loadImagesFromAzureStorage()">Load from Azure Sorage</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <p id="startTimeA"></p>
+            </div>
+            <div class="col-md-4">
+                <p id="endTimeA"></p>
+            </div>
+            <div class="col-md-4">
+                <p id="elapsedTimeA"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForAzure()" id="img1A" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForAzure()" id="img2A" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForAzure()" id="img3A" src='' height="150" width="150" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForAzure()" id="img4A" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForAzure()" id="img5A" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForAzure()" id="img6A" src='' height="150" width="150" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForAzure()" id="img7A" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForAzure()" id="img8A" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForAzure()" id="img9A" src='' height="150" width="150" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            <br />
+            <div class="col-md-12">
+                <button onclick="loadImagesFromAzureCDN()">Load from Azure CDN</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <p id="startTimeC"></p>
+            </div>
+            <div class="col-md-4">
+                <p id="endTimeC"></p>
+            </div>
+            <div class="col-md-4">
+                <p id="elapsedTimeC"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForCDN()" id="img1C" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForCDN()" id="img2C" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForCDN()" id="img3C" src='' height="150" width="150" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForCDN()" id="img4C" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForCDN()" id="img5C" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForCDN()" id="img6C" src='' height="150" width="150" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForCDN()" id="img7C" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForCDN()" id="img8C" src='' height="150" width="150" />
+            </div>
+            <div class="col-md-4">
+                <img onload="recordFinishTimeForCDN()" id="img9C" src='' height="150" width="150" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var finishTimeinms;
+    var startTimeinms;
+
+    var finishTimeinmsA;
+    var startTimeinmsA;
+
+    var finishTimeinmsC;
+    var startTimeinmsC;
+
+    function loadImagesFromWebServer() {
+        var sd = new Date();
+
+        var fsd = "Start Time: " + sd.getHours() + ":" + sd.getMinutes() + ":" +
+            sd.getSeconds() + " " + sd.getMilliseconds();
+
+        $("#startTime").text(fsd);
+
+        startTimeinms = sd.getTime();
+
+        $("#img1").attr("src", "/images/ws1.jpg");
+        $("#img2").attr("src", "/images/ws2.jpg");
+        $("#img3").attr("src", "/images/ws3.jpg");
+        $("#img4").attr("src", "/images/ws4.jpg");
+        $("#img5").attr("src", "/images/ws5.jpg");
+        $("#img6").attr("src", "/images/ws6.jpg");
+        $("#img7").attr("src", "/images/ws7.jpg");
+        $("#img8").attr("src", "/images/ws8.jpg");
+        $("#img9").attr("src", "/images/ws9.jpg");
+    }
+
+    function recordFinishTime() {
+        var fd = new Date();
+        var ffd = "End Time: " + fd.getHours() + ":" + fd.getMinutes() + ":" +
+            fd.getSeconds() + " " + fd.getMilliseconds();
+
+        finishTimeinms = fd.getTime();
+
+        $("#endTime").text(ffd);
+
+        var diff = finishTimeinms - startTimeinms;
+
+        $("#elapsedTime").text("Load Time(in MS): " + diff);
+    }
+
+    function loadImagesFromAzureStorage() {
+        var sd = new Date();
+
+        var fsd = "Start Time: " + sd.getHours() + ":" + sd.getMinutes() + ":" +
+            sd.getSeconds() + " " + sd.getMilliseconds();
+
+        $("#startTimeA").text(fsd);
+
+        startTimeinmsA = sd.getTime();
+
+        $("#img1A").attr("src", "https://makshimages.blob.core.windows.net/images/ws1.jpg");
+        $("#img2A").attr("src", "https://makshimages.blob.core.windows.net/images/ws2.jpg");
+        $("#img3A").attr("src", "https://makshimages.blob.core.windows.net/images/ws3.jpg");
+        $("#img4A").attr("src", "https://makshimages.blob.core.windows.net/images/ws4.jpg");
+        $("#img5A").attr("src", "https://makshimages.blob.core.windows.net/images/ws5.jpg");
+        $("#img6A").attr("src", "https://makshimages.blob.core.windows.net/images/ws6.jpg");
+        $("#img7A").attr("src", "https://makshimages.blob.core.windows.net/images/ws7.jpg");
+        $("#img8A").attr("src", "https://makshimages.blob.core.windows.net/images/ws8.jpg");
+        $("#img9A").attr("src", "https://makshimages.blob.core.windows.net/images/ws9.jpg");
+    }
+
+    function recordFinishTimeForAzure() {
+        var fd = new Date();
+        var ffd = "End Time: " + fd.getHours() + ":" + fd.getMinutes() + ":" +
+            fd.getSeconds() + " " + fd.getMilliseconds();
+
+        finishTimeinmsA = fd.getTime();
+
+        $("#endTimeA").text(ffd);
+
+        var diff = finishTimeinmsA - startTimeinmsA;
+
+        $("#elapsedTimeA").text("Load Time(in MS): " + diff);
+    }
+
+    function loadImagesFromAzureCDN() {
+        var sd = new Date();
+
+        var fsd = "Start Time: " + sd.getHours() + ":" + sd.getMinutes() + ":" +
+            sd.getSeconds() + " " + sd.getMilliseconds();
+
+        $("#startTimeC").text(fsd);
+
+        startTimeinmsC = sd.getTime();
+
+        $("#img1C").attr("src", "https://maksh-cdn-ep.azureedge.net/ws1.jpg");
+        $("#img2C").attr("src", "https://maksh-cdn-ep.azureedge.net/ws2.jpg");
+        $("#img3C").attr("src", "https://maksh-cdn-ep.azureedge.net/ws3.jpg");
+        $("#img4C").attr("src", "https://maksh-cdn-ep.azureedge.net/ws4.jpg");
+        $("#img5C").attr("src", "https://maksh-cdn-ep.azureedge.net/ws5.jpg");
+        $("#img6C").attr("src", "https://maksh-cdn-ep.azureedge.net/ws6.jpg");
+        $("#img7C").attr("src", "https://maksh-cdn-ep.azureedge.net/ws7.jpg");
+        $("#img8C").attr("src", "https://maksh-cdn-ep.azureedge.net/ws8.jpg");
+        $("#img9C").attr("src", "https://maksh-cdn-ep.azureedge.net/ws9.jpg");
+    }
+
+    function recordFinishTimeForCDN() {
+        var fd = new Date();
+        var ffd = "End Time: " + fd.getHours() + ":" + fd.getMinutes() + ":" +
+            fd.getSeconds() + " " + fd.getMilliseconds();
+
+        finishTimeinmsC = fd.getTime();
+
+        $("#endTimeC").text(ffd);
+
+        var diff = finishTimeinmsC - startTimeinmsC;
+
+        $("#elapsedTimeC").text("Load Time(in MS): " + diff);
+    }
+</script>
